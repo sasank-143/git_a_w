@@ -6,6 +6,20 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: run shell commands
+        run: |
+          ls -a
+          pwd
+          echo "$GITHUB_SHA"
+          echo "$GITHUB_REPOSITORY"
+          echo "$GITHUB_WORKSPACE"
+          echo "${{ github.token }}"
+      - name: checkout action
+        uses: actions/checkout@v1.1
+      - name: after the checkout action
+        run: |
+          ls -a
+          pwd 
       - name: simple JS action
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
