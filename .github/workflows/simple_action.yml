@@ -15,7 +15,7 @@ jobs:
           echo "$GITHUB_WORKSPACE"
           echo "${{ github.token }}"
       - name: checkout action
-        uses: actions/checkout@v1.1
+        uses: actions/checkout@v1
       - name: after the checkout action
         run: |
           ls -a
