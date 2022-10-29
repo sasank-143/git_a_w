@@ -13,4 +13,4 @@ jobs:
           who-to-greet: sasank
 
       - name: detect log time
-        run: echo "${{steps.greet.output.time}}"
+        run: echo "${{ steps.greet.output.time }}"
