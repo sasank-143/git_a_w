@@ -7,12 +7,10 @@ jobs:
     steps:
       - name: runs functions
         run: |
-          echo "${{ matches( "hello", "ll" ) }}"
-          echo "${{ startswith( "hello", "ll" ) }}"
-          echo "${{ endswith( "hello", "ll" ) }}"
-          echo "${{ format( "hello {0} {1} {2}", "world" ,"!", "!") }}"
-          
-          
+          echo ${{ contains( "hello", "ll" ) }}
+          echo ${{ startswith( "hello", "he" ) }}
+          echo ${{ endswith( "hello", "lo" ) }}
+          echo ${{ format( "hello {0} {1} {2}", "world" ,"!", "!") }}
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
