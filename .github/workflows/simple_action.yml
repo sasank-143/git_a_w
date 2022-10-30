@@ -5,7 +5,7 @@ on:
     types: [build]
   #push:
   pull_request:
-    types: [ closed, opened, assigned, reopened]
+    types: [ reopened]
 
 jobs:
   run-github-actions:
