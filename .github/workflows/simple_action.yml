@@ -1,7 +1,9 @@
 name: simple action
 
 on:
-  push:
+  repository_dispatch:
+    types: [build]
+  #push:
   pull_request:
     types: [ closed, opened, assigned, reopened]
 
