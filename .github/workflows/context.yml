@@ -2,12 +2,24 @@ name: Context testing
 on: push
 
 jobs:
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: runs functions
+        run: |
+          echo "${{ matches( "hello", "ll" ) }}"
+          echo "${{ startswith( "hello", "ll" ) }}"
+          echo "${{ endswith( "hello", "ll" ) }}"
+          echo "${{ format( "hello {0} {1} {2}", "world" ,"!", "!") }}"
+          
+          
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
+        if: event_type
         id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        run: eccho '${{ toJSON(github) }}'
       - name: Dump job context
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
