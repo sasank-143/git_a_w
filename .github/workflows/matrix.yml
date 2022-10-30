@@ -34,6 +34,7 @@ jobs:
       - name: log node version
         run: |
           node -v 
+          cat $node_version
 
 
 
