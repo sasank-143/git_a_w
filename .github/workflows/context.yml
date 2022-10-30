@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        if: event_type
         id: github_context_step
         run: eccho '${{ toJSON(github) }}'
       - name: Dump job context
