@@ -1,0 +1,41 @@
+name: using matrix
+
+on: push
+
+jobs: 
+  using_matrix:
+    strategy:
+      matrix: 
+        os: [ macos-latest, windows-latest, ubuntu-latest]
+        node_versions: [ 6, 7, 10]
+        include:
+          - os: ubuntu-latest
+            node_versions: 6
+            is_node_versions_6: true
+        exclude:
+          - os: macos-latest
+            node_versions: 7
+          - os: windows-latest
+            node_versions: 6
+          - os: ubuntu-latest
+            node_versions: 10
+          
+
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    env:
+      node_version: ${{ matrix.is_node_versions_6 }}
+    steps:
+      - name: node version
+        run: node -v 
+      - uses: actions/setup-node@v1
+        with: 
+          node_version: ${{ matrix.naode_versions }}
+      - name: log node version
+        run: |
+          node -v 
+          echo $node_version
+
+
+
+
